@@ -23,7 +23,7 @@ mix d01.p1 -b
 
 | Kata                                            | Part 1 | Part 2 |
 | ----------------------------------------------- | ------ | ------ |
-| [1 - Sonar Sweep](lib/advent_of_code/day_01.ex) | ⭐️      |        |
+| [1 - Sonar Sweep](lib/advent_of_code/day_01.ex) | ⭐️      | ⭐️      |
 | 2- TBA                                          |        |        |
 | 3- TBA                                          |        |        |
 | 4- TBA                                          |        |        |
