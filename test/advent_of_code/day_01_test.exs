@@ -4,15 +4,32 @@ defmodule AdventOfCode.Day01Test do
   import AdventOfCode.Day01
   import AdventOfCode.Input
 
-  @tag :skip
-  test "part1" do
-    input = nil
-    result = part1(input)
+  describe "part1" do
+    test "example 1" do
+      input = "199
+200
+208
+210
+200
+207
+240
+269
+260
+263"
 
-    assert result
+      result = part1(input)
+
+      assert result === 7
+    end
+
+    test "final input" do
+      input = AdventOfCode.Input.get!(1, 2021)
+      result = part1(input)
+
+      assert result === 1766
+    end
   end
 
-  @tag :skip
   test "part2" do
     input = nil
     result = part2(input)
