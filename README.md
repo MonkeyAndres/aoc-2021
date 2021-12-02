@@ -14,9 +14,6 @@ mix deps.get
 
 # Run one day tests
 mix test test/advent_of_code/day_01_test.exs
-
-# Benchmark your solution
-mix d01.p1 -b
 ```
 
 ## Progress
