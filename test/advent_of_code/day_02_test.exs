@@ -26,11 +26,17 @@ forward 2"
     end
   end
 
-  @tag :skip
-  test "part2" do
-    input = nil
-    result = part2(input)
+  describe "part2" do
+    test "example input" do
+      result = part2(@example_input)
 
-    assert result
+      assert result === 900
+    end
+
+    test "part2" do
+      result = part2(@final_input)
+
+      assert result === 1_463_827_010
+    end
   end
 end
