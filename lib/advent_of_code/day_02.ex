@@ -8,51 +8,45 @@ defmodule AdventOfCode.Day02 do
   end
 
   def part1(input) do
-    initial_position = %{horizontal: 0, depth: 0}
+    parse_directions(input)
+    |> Enum.reduce({_horizontal = 0, _depth = 0}, fn direction, {horizontal, depth} ->
+      case direction do
+        ["forward", x] ->
+          {horizontal + x, depth}
 
-    final_position =
-      parse_directions(input)
-      |> Enum.reduce(initial_position, fn direction, acc ->
-        case direction do
-          ["forward", x] ->
-            Map.update!(acc, :horizontal, &(&1 + x))
+        ["up", x] ->
+          {horizontal, depth - x}
 
-          ["up", x] ->
-            Map.update!(acc, :depth, &(&1 - x))
+        ["down", x] ->
+          {horizontal, depth + x}
 
-          ["down", x] ->
-            Map.update!(acc, :depth, &(&1 + x))
-
-          _ ->
-            acc
-        end
-      end)
-
-    final_position.horizontal * final_position.depth
+        _ ->
+          {horizontal, depth}
+      end
+    end)
+    |> then(fn {horizontal, depth} -> horizontal * depth end)
   end
 
   def part2(input) do
-    initial_position = %{horizontal: 0, depth: 0, aim: 0}
-
-    final_position =
-      parse_directions(input)
-      |> Enum.reduce(initial_position, fn direction, acc ->
+    parse_directions(input)
+    |> Enum.reduce(
+      {_horizontal = 0, _depth = 0, _aim = 0},
+      fn direction, {horizontal, depth, aim} ->
         case direction do
           ["forward", x] ->
-            Map.update!(acc, :horizontal, &(&1 + x))
-            |> Map.update!(:depth, &(&1 + acc.aim * x))
+            {horizontal + x, depth + aim * x, aim}
 
           ["up", x] ->
-            Map.update!(acc, :aim, &(&1 - x))
+            {horizontal, depth, aim - x}
 
           ["down", x] ->
-            Map.update!(acc, :aim, &(&1 + x))
+            {horizontal, depth, aim + x}
 
           _ ->
-            acc
+            {horizontal, depth, aim}
         end
-      end)
-
-    final_position.horizontal * final_position.depth
+      end
+    )
+    |> then(fn {horizontal, depth, _aim} -> horizontal * depth end)
   end
 end
