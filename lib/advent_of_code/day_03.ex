@@ -12,10 +12,7 @@ defmodule AdventOfCode.Day03 do
   def part1(input) do
     submarine_rates =
       parse_binary_diagnosis(input)
-      |> Enum.zip()
-      |> Enum.reduce(%{gamma_rate: "", epsilon_rate: ""}, fn bitsColumnTuple, acc ->
-        bitsColumn = Tuple.to_list(bitsColumnTuple)
-
+      |> Enum.zip_reduce(%{gamma_rate: "", epsilon_rate: ""}, fn bitsColumn, acc ->
         occurrences_0 = Enum.count(bitsColumn, &(&1 == "0"))
         occurrences_1 = Enum.count(bitsColumn, &(&1 == "1"))
 
