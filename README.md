@@ -22,7 +22,7 @@ mix test test/advent_of_code/day_01_test.exs
 | ---------------------------------------------------- | ------ | ------ |
 | [1 - Sonar Sweep](lib/advent_of_code/day_01.ex)      | ⭐️      | ⭐️      |
 | [2- Dive!](lib/advent_of_code/day_02.ex)             | ⭐️      | ⭐️      |
-| [3- Binary Diagnostic](lib/advent_of_code/day_03.ex) | ⭐️      |        |
+| [3- Binary Diagnostic](lib/advent_of_code/day_03.ex) | ⭐️      | ⭐️      |
 | 4- TBA                                               |        |        |
 | 5- TBA                                               |        |        |
 | 6- TBA                                               |        |        |
