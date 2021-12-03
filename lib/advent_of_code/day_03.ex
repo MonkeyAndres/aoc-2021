@@ -13,23 +13,24 @@ defmodule AdventOfCode.Day03 do
   end
 
   def part1(input) do
-    submarine_rates =
-      parse_binary_diagnosis(input)
-      |> Enum.map(&String.graphemes/1)
-      |> Enum.zip_reduce(%{gamma_rate: "", epsilon_rate: ""}, fn bitsColumn, acc ->
+    parse_binary_diagnosis(input)
+    |> Enum.map(&String.graphemes/1)
+    |> Enum.zip_reduce(
+      {_gamma_rate = "", _epsilon_rate = ""},
+      fn bitsColumn, {gamma_rate, epsilon_rate} ->
         occurrences_0 = occurrences(bitsColumn, "0")
         occurrences_1 = occurrences(bitsColumn, "1")
 
         if occurrences_0 < occurrences_1 do
-          Map.update!(acc, :gamma_rate, &(&1 <> "0"))
-          |> Map.update!(:epsilon_rate, &(&1 <> "1"))
+          {gamma_rate <> "0", epsilon_rate <> "1"}
         else
-          Map.update!(acc, :gamma_rate, &(&1 <> "1"))
-          |> Map.update!(:epsilon_rate, &(&1 <> "0"))
+          {gamma_rate <> "1", epsilon_rate <> "0"}
         end
-      end)
-
-    binary_to_dec(submarine_rates.gamma_rate) * binary_to_dec(submarine_rates.epsilon_rate)
+      end
+    )
+    |> then(fn {gamma_rate, epsilon_rate} ->
+      binary_to_dec(gamma_rate) * binary_to_dec(epsilon_rate)
+    end)
   end
 
   def part2(input) do
