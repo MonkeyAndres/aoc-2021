@@ -39,11 +39,17 @@ defmodule AdventOfCode.Day04Test do
     end
   end
 
-  @tag :skip
-  test "part2" do
-    input = nil
-    result = part2(input)
+  describe "part 2" do
+    test "example input" do
+      result = part2(@example_input)
 
-    assert result
+      assert result === 1924
+    end
+
+    test "final input" do
+      result = part2(@final_input)
+
+      assert result === 2634
+    end
   end
 end

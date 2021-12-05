@@ -70,6 +70,27 @@ defmodule AdventOfCode.Day04 do
     end)
   end
 
-  def part2(args) do
+  def part2(input) do
+    {draw_numbers, boards} = parse_bingo_data(input)
+
+    Enum.reduce_while(draw_numbers, boards, fn current_draw, boards ->
+      next_boards = mark_number_in_boards(boards, current_draw)
+
+      [first_board | _rest] = next_boards
+
+      cond do
+        length(next_boards) == 1 && check_winning_board(first_board) ->
+          {
+            :halt,
+            calculate_final_result(first_board, current_draw)
+          }
+
+        true ->
+          Enum.reject(next_boards, &check_winning_board/1)
+          |> then(fn next_boards ->
+            {:cont, next_boards}
+          end)
+      end
+    end)
   end
 end
