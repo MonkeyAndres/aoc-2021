@@ -26,7 +26,7 @@ mix test test/advent_of_code/day_01_test.exs
 | [4 - Giant Squid](lib/advent_of_code/day_04.ex)             | ⭐️      | ⭐️      |
 | [5 - Hydrothermal Venture](lib/advent_of_code/day_05.ex)    | ⭐️      | ⭐️      |
 | [6 - Lanternfish](lib/advent_of_code/day_06.ex)             | ⭐️      |        |
-| [7 - The Treachery of Whales](lib/advent_of_code/day_07.ex) | ⭐️      |        |
+| [7 - The Treachery of Whales](lib/advent_of_code/day_07.ex) | ⭐️      | ⭐️      |
 | 8 - TBA                                                     |        |        |
 | 9 - TBA                                                     |        |        |
 | 10 - TBA                                                    |        |        |

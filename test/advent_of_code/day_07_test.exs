@@ -20,11 +20,17 @@ defmodule AdventOfCode.Day07Test do
     end
   end
 
-  @tag :skip
-  test "part2" do
-    input = nil
-    result = part2(input)
+  describe "part 2" do
+    test "example input" do
+      result = part2(@example_input)
 
-    assert result
+      assert result === 168
+    end
+
+    test "final input" do
+      result = part2(@final_input)
+
+      assert result === 93_006_301
+    end
   end
 end
