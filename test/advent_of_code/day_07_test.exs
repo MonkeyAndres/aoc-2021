@@ -3,12 +3,21 @@ defmodule AdventOfCode.Day07Test do
 
   import AdventOfCode.Day07
 
-  @tag :skip
-  test "part1" do
-    input = nil
-    result = part1(input)
+  @example_input "16,1,2,0,4,2,7,1,2,14"
+  @final_input AdventOfCode.Input.get!(7, 2021)
 
-    assert result
+  describe "part 1" do
+    test "example input" do
+      result = part1(@example_input)
+
+      assert result === 37
+    end
+
+    test "final input" do
+      result = part1(@final_input)
+
+      assert result === 342_641
+    end
   end
 
   @tag :skip
